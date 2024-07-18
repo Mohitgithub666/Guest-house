@@ -1,0 +1,148 @@
+.head-nav {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  position: relative;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+}
+.header-con {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+nav ul {
+  display: flex;
+  gap: 4.2rem;
+  text-transform: capitalize;
+  & li {
+    position: relative;
+    & a:hover {
+      color: #b57800;
+    }
+  }
+}
+.nav-btn {
+  & a {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+}
+li a::after {
+  content: "";
+  position: absolute;
+  height: 0.3rem;
+  width: 0;
+  left: 0;
+  bottom: -0.1rem;
+  background-color: var(--btn-blue);
+  transition: 0.3s;
+}
+
+a.active,
+a.active::after {
+  color: #b57800;
+  width: 80%;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.logo {
+  display: flex;
+
+  & img {
+    width: 9vw;
+    height: 7vh;
+    filter: drop-shadow(0 0 0.75rem #f4f5f8);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .head-nav {
+    height: 5vh;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    gap: 0;
+    margin-top: 5rem;
+
+    & li {
+      height: 5rem;
+      width: 100%;
+      box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.4);
+      animation: navAnimation 600ms ease forwards;
+      transform: rotateX(90deg);
+      transform-origin: top;
+      opacity: 0;
+
+      & :nth-child(2) {
+        animation-delay: 200ms;
+      }
+      & :nth-child(3) {
+        animation-delay: 400ms;
+      }
+      & :nth-child(4) {
+        animation-delay: 600ms;
+      }
+      & :nth-child(5) {
+        animation-delay: 800ms;
+      }
+      & :nth-child(6) {
+        animation-delay: 1s;
+      }
+    }
+    & a {
+      background-color: var(--btn-blue);
+
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1rem 5rem 1rem 3rem;
+    }
+  }
+
+  @keyframes navAnimation {
+    to {
+      transform: rotateX(0);
+      opacity: 1;
+    }
+  }
+
+  .menu-icon {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--txt-cl);
+    font-size: 3.5rem;
+  }
+  .Show_nav {
+    display: flex;
+  }
+  .Hide_nav {
+    display: none;
+  }
+
+  .logo img {
+    width: 20vw;
+    height: 5vh;
+  }
+}
+@media (max-width: 600px) {
+  .logo img {
+    width: 25vw;
+    height: 4vh;
+  }
+}
